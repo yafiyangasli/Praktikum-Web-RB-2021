@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <title>Isi Data Diri CV</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      *{
+        font-family: "Poppins" , sans-serif;
+      }
+      body{
+        background-color: #dfe4e3;
+      }
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .column {
+    float: left;
+    padding-right: 10px;
+    padding-left: 100px;
+  }
+
+  .column.side {
+    width: 50%;
+  }
+
+  .column.middle {
+    width: 50%;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  button {
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	margin-bottom: 5%;
+  	padding: 5px;
+  	width: 10%;
+  }
+
+
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  </style>
+</head>
+<body>
+
+<div class="header" style="color: #21302f;">
+  <img src="assets/head.jpg" alt="foto profil" style="margin-left: auto; margin-right: auto; width: 50%; border-radius: 10px; "/>
+</div>
+
+<div class="topnav" style="background-color: #21302f;">
+  <a href="profile.html">Beranda</a>
+  <a href="index.html">Isi Data</a>
+  <a href="https://www.instagram.com/myafifahmii/" target="https://www.instagram.com/myafifahmii/">Instagram</a>
+  <a href="https://github.com/yafiyangasli" target="https://github.com/yafiyangasli">Github</a>
+</div>
+
+
+<form action="profile.html">
+<div class="row" style="color: #21302f;">
+  <div class="column side" style="min-height: calc(100vh - 40px);">
+    <h1>Data Diri</h1>
+	  <label for="nama">Nama :</label><br>
+	  <input type="text" id="nama" style="width: 50%;"><br><br>
+	  <label for="ttl">Tempat, Tanggal Lahir :</label><br>
+	  <input type="text" id="ttl" style="width: 50%;"><br><br>
+	  <label>Jenis Kelamin :</label><br>
+	  <input type="radio" id="pria" name="jenis_kelamin" value="pria">
+  		<label for="pria">Pria</label><br>
+	  <input type="radio" id="wanita" name="jenis_kelamin" value="wanita">
+  		<label for="wanita">Wanita</label><br><br>
+	  <label for="agama">Agama :</label><br>
+	  <input type="text" id="agama" style="width: 50%;"><br><br>
+	  <label>Status :</label><br>
+	  <input type="radio" id="menikah" name="menikah" value="menikah">
+  		<label for="menikah">Menikah</label><br>
+	  <input type="radio" id="belum_menikah" name="belum_menikah" value="belum_menikah">
+  		<label for="belum_menikah">Belum Menikah</label><br><br>
+	  <label for="kwn">Kewarganegaraan :</label><br>
+	  <input type="text" id="kwn" style="width: 50%;"><br>
+	  <br> 
+    <h1>Kontak</h1>
+	  <label for="telepon">Telepon :</label><br>
+	  <input type="text" id="telepon" style="width: 50%;"><br><br>
+	  <label for="email">Email :</label><br>
+	  <input type="email" id="email" style="width: 50%;"><br><br>
+	  <label for="alamat">Alamat :</label><br>
+	  <textarea id="alamat" style="width: 50%;"></textarea><br><br>
+  </div>
+
+  <div class="column middle">
+  	<h1>Riwayat Pendidikan</h1>
+	  <label for="sd">SD :</label><br>
+	  <input type="text" id="sd" style="width: 50%;"><br><br>
+	  <label for="smp">SMP :</label><br>
+	  <input type="text" id="smp" style="width: 50%;"><br><br>
+	  <label for="sma">SMA :</label><br>
+	  <input type="text" id="sma" style="width: 50%;"><br><br>
+	  <label for="kuliah">Kuliah :</label><br>
+	  <input type="text" id="kuliah" style="width: 50%;"><br>
+	  <br> 
+    <h1>Pengalaman Organisasi</h1>
+	  <textarea id="organisasi" style="width: 70%; min-height: 150px;"></textarea><br><br>
+	<h1>Kemampuan Bahasa</h1>
+	  <textarea id="bahasa" style="width: 70%; min-height: 150px;"></textarea><br><br>
+	<h1>Kemampuan Keahlian</h1>
+	  <textarea id="Keahlian" style="width: 70%; min-height: 150px;"></textarea><br><br>
+  </div>
+</div>
+<button type="submit">Input</button>
+</form> 
+<footer style="text-align: center; background-color: #354d4b; color: #cadac9; padding: 10px">Copyright</footer>
+</body>
+</html>
