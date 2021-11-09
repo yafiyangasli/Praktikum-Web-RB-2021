@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Input Data</title>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 0px; margin: 0px;">
+        <div class="jumbotron">
+            <h1 class="text-center">Form Prak 4</h1>
+        </div>
+    </div>
+    <div class="container" style="padding-top: 25px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button class="btn btn-success" id="show-add">Tambah Data Baru</button>
+                </div>
+                <div id="link-add" class="form-inline">
+                    <div class="form-group col-md-3">
+                        <input type="number" name="nim" id="nim" placeholder="NIM" class="form-control" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" name="nama" id="nama" placeholder="Nama" class="form-control" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <select name="prodi" name="prodi" id="prodi" class="form-control">
+                            <option value="">Pilih Prodi</option>
+                            <option value="IF">Teknik Informatika</option>
+                            <option value="EL">Teknik Elektro</option>
+                            <option value="SI">Teknik Sipil</option>
+                            <option value="TG">Teknik Geofisika</option>
+                            <option value="MA">Matematika</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="number" id="angkatan" name="angkatan" placeholder="Tahun Angkatan" class="form-control" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button type="button" class="btn btn-primary" id="add" name="add">Tambah Data</button>
+                        <button type="button" href="javascript:void(0);" class="btn btn-default" id="cancel" name="add" onclick="$('#link-add').slideUp(400);$('#show-add').show(600);">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="records_content"></div>
+                <br>
+                <div class="col-md-offset-1 col-md-10" id="table_content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="ajax.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#add').click(function() {
+        var nim = $('#nim').val();
+        var nama = $('#nama').val();
+        var prodi = $('#prodi').val();
+        var angkatan = $('#angkatan').val();
+
+        $.ajax({
+            url: "add.php",
+            type: "POST",
+            data: {nim:nim, nama:nama, prodi:prodi, angkatan:angkatan},
+            success: function(data, status, xhr) {
+                $('#nim').val('');
+                $('#nama').val('');
+                $('#prodi').val('');
+                $('#angkatan').val('');
+                $.get("view.php", function(html) {
+                    $("#table_content").html(html);
+                });
+                $('#records_content').fadeOut(1100).html(data);
+            },
+            error: function() {
+                $('#records_content').fadeIn(3000).html('<div class="text-center">error here</div>');
+            },
+            beforeSend: function() {
+                $('#records_content').fadeOut(700).html('<div class="text-center">Loading...</div>');
+            },
+            complete: function() {
+                $('#link-add').hide();
+                $('#show-add').show(700);
+            }
+        });
+    });
+});
+    </script>
+</body>
+
+</html>
