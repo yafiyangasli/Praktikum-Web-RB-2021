@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      *{
+        font-family: "Poppins" , sans-serif;
+      }
+  * {
+    box-sizing: border-box;
+  }
+
+.container{
+    padding: 20px; 
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="section1">
+            <h2>Web Praktikum 3</h2>
+            <form>
+                <label for="warna">Pilih warna backgroundmu</label>
+                <select id="warna" name="warna" onchange="getWarna()">
+                    <option value="white">Normal</option>
+                    <option value="red">Merah</option>
+                    <option value="green">Hijau</option>
+                    <option value="blue">Biru</option>
+                </select><br><br>
+                <label for="makan">Kamu lagi mau makan apa?</label>
+                <select id="makan" name="makan" onchange="getMakan()">
+                    <option value="">Pilih disini..</option>
+                    <option value="Nasi padangnya lagi abis loh...">Nasi Padang</option>
+                    <option value="Gojek aja lagi promo lumayan">Domino's Pizza</option>
+                    <option value="Mie bara mahal banget sekarang hehehe">Mie Bara</option>
+                    <option value="Bude wayan udah tutup :'(">Bude Wayan</option>
+                </select><br>
+                <p id="tampilMakan"></p>
+                <label for="nomor">Nomor?</label>
+                <input type="number" name="nomor" id="nomor" onkeyup="getNomor()"><br>
+                <p id="tampilNomor"></p>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function getWarna(){
+            var w = document.getElementById('warna').value;
+            document.body.style.backgroundColor = w;
+        }
+        function getMakan(){
+            var x = document.getElementById('makan').value;
+            document.getElementById('tampilMakan').innerHTML=x;
+        }
+        function getNomor(){
+            var y = document.getElementById('nomor').value;
+            var result = 1;
+            for (var i = 1; i <= y; i++) {
+                result = result * i;
+            }
+            document.getElementById('tampilNomor').innerHTML='Hasil faktorialnya adalah '+result;
+        }
+    </script>
+</body>
+</html>
